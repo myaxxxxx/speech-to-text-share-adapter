@@ -62,7 +62,7 @@ pip install sacrebleu==1.5.1
 
 1. Please Download [Mustc-v1](https://docs.google.com/forms/d/e/1FAIpQLSer9jNfUtxbi610n3T6diXRlANBbuzShsCje-GtKs1Sngh0YQ/viewform?pli=1) dataests. 
 
-   *Note: We find that it appears that the original dataset [website](https://www.fbk.eu/en/research-centers/) hides the download link. However the dataset can still be downloaded after filling out the dataset request form directly. So we recommend that you use this method.*
+   *Note: It appears that the original dataset [website](https://www.fbk.eu/en/research-centers/) hides the download link. However the dataset can still be downloaded after filling out the dataset request form directly. So we recommend that you use this method.*
 
 2. Make directories to store ST (MuST-C) and datasets. Please specify the target language.
 
@@ -97,14 +97,10 @@ tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
 
 #### Machine Translation Pre-train
 ```
-
-
 DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/binary
-SAVE_DIR=/workspace/deltalm/save_dir/delta_s2t_ted_en_de_right_test
-USER_DIR=/workspace/deltalm/deltalm/code/unilm/deltalm/prefix_deltalm_old
+SAVE_DIR=/path/to/save
+USER_DIR=/path/to/deltalm # deltalm dir
 PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
-
-
 
 export CUDA_VISIBLE_DEVICES=3
 PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
@@ -143,7 +139,7 @@ python train.py $DATA_BIN \
 
 #### Speeech-to-text Translation Training
 
-
+##### Normal Adapter
 
 ```
 
@@ -158,7 +154,7 @@ pretrain_checkpoints_num=10
 data_dir=/workspace/projects/s2t/data/en-$target
 TEXT_DIR=/workspace/projects/s2t/deltalm_data/en-$target/binary
 
-CRESS_DIR=/workspace/projects/s2t/cress_adapter_emd
+USER_DIR=/workspace/projects/s2t/cress_adapter_emd
 HU_BERT=/workspace/projects/s2t/cress/hubert
 ARCH=deltalm_transformer_adapter_emd
 
@@ -166,7 +162,7 @@ adapters_bottle_num=128
 SAVE_DIR=/workspace/projects/s2t/save_dir/$target/st_deltalm_adapters_emd_$adapters_bottle_num
 
 fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
-  --user-dir $CRESS_DIR \
+  --user-dir $USER_DIR \
   --config-yaml config.yaml --train-subset train --valid-subset dev \
   --save-dir $SAVE_DIR --num-workers 4 --max-tokens 3000000 --batch-size 32 --max-tokens-text 4096 --max-update 100000 \
   --task speech_and_text_translation --criterion speech_and_text_translation --label-smoothing 0.1 \
@@ -179,15 +175,19 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
   --hubert-model-path $HU_BERT/hubert_base_ls960.pt \
   --pretrained_deltalm_checkpoint /workspace/projects/s2t/save/$target/checkpoints/checkpoint$pretrain_checkpoints_num.pt \
   --max-source-positions 512 --max-target-positions 512  --adapters-bottle $adapters_bottle_num --tensorboard-logdir $SAVE_DIR
+```
 
+##### Share Adapter
 
+```
+# change USER_DIR
+USER_DIR=/workspace/projects/s2t/cress_adapter_emd_share
 ```
 
 ### Evaluation
 
 
 ```
-
 export CUDA_VISIBLE_DEVICES=3
 DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
 

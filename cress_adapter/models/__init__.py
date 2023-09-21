@@ -5,7 +5,7 @@ import importlib
 for file in os.listdir(os.path.dirname(__file__)):
     if file.endswith(".py") and not file.startswith("_"):
         file_name = file[: file.find(".py")]
-        importlib.import_module("cress.models." + file_name)
+        importlib.import_module("cress_adapter.models." + file_name)
 
 
 
