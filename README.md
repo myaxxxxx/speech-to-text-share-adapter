@@ -182,6 +182,8 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
 ```
 # change USER_DIR
 USER_DIR=/workspace/projects/s2t/cress_adapter_emd_share
+# change --arch
+--arch deltalm_transformer_adapter_emd_share
 ```
 
 ### Evaluation
