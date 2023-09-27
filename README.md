@@ -17,7 +17,8 @@ Parameter-Efficient Adapters Based on Pre-trained Models for Speech Translation
 </p>
 
 <p align="center">
- Codes for our regular and share adapters for speech-to-text translation tasks (Under review). 
+Codes for our regular and share adapters for speech-to-text translation tasks (Under review).
+After the review period, we will open-source the code on our GitHub.
 </p>
 
 
@@ -44,7 +45,7 @@ python setup.py build develop
 
 3. Other operations
 
-Due to the version compatibility of packages, you also need to reinstall the following packages：
+    *Note: Due to the version compatibility of packages, you also need to reinstall the following packages：*
 
 ```bash
 # numpy np.float error 
@@ -58,7 +59,7 @@ pip install sacrebleu==1.5.1
 
 
 <!-- #### Mustc v1 -->
-#### Mustc Prepare
+#### Mustc Datasets Prepare
 
 1. Please Download [Mustc-v1](https://docs.google.com/forms/d/e/1FAIpQLSer9jNfUtxbi610n3T6diXRlANBbuzShsCje-GtKs1Sngh0YQ/viewform?pli=1) dataests. 
 
@@ -77,12 +78,12 @@ cd $MUSTC_ROOT
 tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
 ```
 
-#### Deltalm prepare
+#### Deltalm Prepare
 1.  Download [Vocabulary](https://deltalm.blob.core.windows.net/deltalm/dict.txt), [ Sentencepiece-model](https://deltalm.blob.core.windows.net/deltalm/spm.model) and [Model](https://deltalm.blob.core.windows.net/deltalm/deltalm-base.pt) of deltalm and you need to tokenize raw data to spm data. 
 
 2.  Preprocess spm data. 
 
-#### Speech pre-trained model 
+#### Speech Pre-trained Model 
 
 1. We use Hubert model for speech pre-trained model for training. Before training, please download the [HuBERT-Base](https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960.pt) model.
 
@@ -129,7 +130,6 @@ python train.py $DATA_BIN \
     --tensorboard-logdir $SAVE_DIR/tensorboard \
     --save-dir $SAVE_DIR/checkpoints \
     --keep-last-epochs 50 --fp16
-
 ```
 
 
@@ -142,7 +142,6 @@ python train.py $DATA_BIN \
 ##### Normal Adapter
 
 ```
-
 target=it
 cd /workspace/projects/s2t/data/en-$target
 export CUDA_VISIBLE_DEVICES=0
