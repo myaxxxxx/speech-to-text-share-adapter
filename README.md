@@ -97,6 +97,7 @@ tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
 
 
 #### Machine Translation Pre-train
+*Notes: We first pre-train machine translation model with transcribed speech data (text) and target text data to initialize the speech-to-text model parameters (except for the Hubert model). Besides, to ensure a fair comparison with other baseline models, we did not employ the multilingual machine translation settings during the training phase.*
 ```
 DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/binary
 SAVE_DIR=/path/to/save
