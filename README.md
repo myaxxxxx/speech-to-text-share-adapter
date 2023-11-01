@@ -70,6 +70,7 @@ pip install sacrebleu==1.5.1
 ```
 TARGET=de
 MUSTC_ROOT=data/mustc
+
 ```
 
 2. Unzip the mustc datasets.
