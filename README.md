@@ -138,7 +138,7 @@ python train.py $DATA_BIN \
 
 
 
-#### Speeech-to-text Translation Training
+#### Speech-to-text Translation Training
 
 ##### Normal Adapter
 
@@ -204,6 +204,6 @@ python generate.py $DATA_BIN \
 
 
 
-### Acknowledgement
+### Acknowledgment
 
 We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm) and [CRESS](https://github.com/ictnlp/CRESS). Thanks for their great contributions!
