@@ -28,7 +28,7 @@ After the review period, we will open-source the code on our GitHub.
 
 ```
 conda create --name adapters python=3.9
-source activate adapters
+conda activate adapters
 ```
 
 2. Install fairseq
