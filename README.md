@@ -38,7 +38,6 @@ git clone https://github.com/pytorch/fairseq
 cd fairseq
 pip install --editable ./
 
-
 # Next: Important!
 python setup.py build develop
 ```
@@ -95,7 +94,6 @@ tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
 
 
 ### Training
-
 #### Machine Translation Pre-train
 *Notes: We first pre-train machine translation model with transcribed speech data (text) and target text data to initialize the speech-to-text model parameters (except for the Hubert model). Besides, to ensure a fair comparison with other baseline models, we did not employ the multilingual machine translation settings during the training phase.*
 ```
@@ -139,9 +137,7 @@ python train.py $DATA_BIN \
 
 
 #### Speech-to-text Translation Training
-
 ##### Normal Adapter
-
 ```
 target=it
 cd /workspace/projects/s2t/data/en-$target
@@ -178,7 +174,6 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
 ```
 
 ##### Share Adapter
-
 ```
 # change USER_DIR
 USER_DIR=/workspace/projects/s2t/cress_adapter_emd_share
@@ -187,8 +182,6 @@ USER_DIR=/workspace/projects/s2t/cress_adapter_emd_share
 ```
 
 ### Evaluation
-
-
 ```
 export CUDA_VISIBLE_DEVICES=3
 DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
