@@ -55,6 +55,8 @@ pip install numpy==1.23.5
 pip install sacrebleu==1.5.1
 ```
 
+This repository is constructed using the codebase from fairseq. If you require information on the basic usage of fairseq, please refer to the [fairseq documentation](https://fairseq.readthedocs.io/en/latest/).
+
 ### Datasets and Models
 
 
@@ -70,7 +72,6 @@ pip install sacrebleu==1.5.1
 ```
 TARGET=de
 MUSTC_ROOT=data/mustc
-
 ```
 
 2. Unzip the mustc datasets.
@@ -94,8 +95,6 @@ tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
 
 
 ### Training
-
-
 
 #### Machine Translation Pre-train
 *Notes: We first pre-train machine translation model with transcribed speech data (text) and target text data to initialize the speech-to-text model parameters (except for the Hubert model). Besides, to ensure a fair comparison with other baseline models, we did not employ the multilingual machine translation settings during the training phase.*
