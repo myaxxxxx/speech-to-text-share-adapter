@@ -21,6 +21,9 @@ Codes for our regular and share adapters for speech-to-text translation tasks (U
 After the review period, we will open-source the code on our GitHub.
 </p>
 
+### Overview
+
+![](images/fig1.png#id=UEGkS&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 ### Installation
 
