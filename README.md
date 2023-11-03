@@ -59,6 +59,21 @@ pip install sacrebleu==1.5.1
 
 This repository is constructed using the codebase from fairseq. If you require information on the basic usage of fairseq, please refer to the [fairseq documentation](https://fairseq.readthedocs.io/en/latest/).
 
+4. Other requirements
+
+- pandas==2.0.3
+- sacrebleu==1.5.1
+- scikit-learn==1.3.0
+- scipy==1.11.1
+- sentencepiece==0.1.99
+- tensorboard==2.14.0
+- torch==2.0.1
+- torchaudio==2.0.2
+- tqdm==4.65.0
+
+
+
+
 ### Datasets and Models
 
 
