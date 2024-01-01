@@ -24,7 +24,7 @@ After the review period, we will open-source the code on our GitHub.
 ### Overview
 
 <div style="text-align: center">
-<img src="images/fig1.png"/>
+<img src="images/overview.jpg"/>
 </div>
 <!-- ![](images/fig1.png#id=UEGkS&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) -->
 
