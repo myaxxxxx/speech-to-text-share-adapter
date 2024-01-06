@@ -26,6 +26,13 @@ After the review period, we will open-source the code on our GitHub.
 <div style="text-align: center">
 <img src="images/overview.jpg"/>
 </div>
+
+
+### PEFT methods
+
+<div style="text-align: center">
+<img src="images/fig1-1.png"/>
+</div>
 <!-- ![](images/fig1.png#id=UEGkS&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) -->
 
 ### Installation
@@ -81,11 +88,11 @@ This repository is constructed using the codebase from fairseq. If you require i
 
 
 <!-- #### Mustc v1 -->
-#### Mustc Datasets Prepare
+#### MuST-C Datasets Prepare
 
-1. Please Download [Mustc-v1](https://docs.google.com/forms/d/e/1FAIpQLSer9jNfUtxbi610n3T6diXRlANBbuzShsCje-GtKs1Sngh0YQ/viewform?pli=1) datasets. 
+1. Please Download [MuSTc-v1](https://docs.google.com/forms/d/e/1FAIpQLSer9jNfUtxbi610n3T6diXRlANBbuzShsCje-GtKs1Sngh0YQ/viewform?pli=1) datasets. 
 
-   *Notes: It appears that the original dataset [website](https://www.fbk.eu/en/research-centers/) hides the download link. However the dataset can still be downloaded after filling out the dataset request [form](https://docs.google.com/forms/d/e/1FAIpQLSer9jNfUtxbi610n3T6diXRlANBbuzShsCje-GtKs1Sngh0YQ/viewform?pli=1) directly. So we recommend that you use this method.*
+   *Notes: It appears that the original dataset [website](https://www.fbk.eu/en/research-centers/) hides the download link. However, the dataset can still be downloaded after filling out the dataset request [form](https://docs.google.com/forms/d/e/1FAIpQLSer9jNfUtxbi610n3T6diXRlANBbuzShsCje-GtKs1Sngh0YQ/viewform?pli=1) directly. So we recommend that you use this method.*
 
 2. Make directories to store ST (MuST-C) and datasets. Please specify the target language.
 
@@ -94,7 +101,7 @@ TARGET=de
 MUSTC_ROOT=data/mustc
 ```
 
-2. Unzip the mustc datasets.
+3. Unzip the mustc datasets.
 ```
 cd $MUSTC_ROOT
 tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
@@ -171,7 +178,7 @@ pretrain_checkpoints_num=10
 data_dir=/workspace/projects/s2t/data/en-$target
 TEXT_DIR=/workspace/projects/s2t/deltalm_data/en-$target/binary
 
-USER_DIR=/workspace/projects/s2t/cress_adapter_emd
+USER_DIR=/workspace/projects/s2t/cress_adapter
 HU_BERT=/workspace/projects/s2t/cress/hubert
 ARCH=deltalm_transformer_adapter_emd
 
@@ -197,9 +204,40 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
 ##### Share Adapter
 ```
 # change USER_DIR
-USER_DIR=/workspace/projects/s2t/cress_adapter_emd_share
+USER_DIR=/workspace/projects/s2t/cress_adapter_share
 # change --arch
 --arch deltalm_transformer_adapter_emd_share
+```
+
+##### Adapter NAS
+```
+# change USER_DIR
+USER_DIR=/workspace/projects/s2t/cress_adapter_share_nas
+# change --arch
+--arch deltalm_transformer_adapter_emd_share_nas
+```
+
+#### Prefix (referring to [Prefix-v2](https://github.com/THUDM/P-tuning-v2))
+
+```
+# change --user-dir 
+USER_DIR=/workspace/projects/s2t/cress_prefix
+# change --arch
+--arch deltalm_transformer_prefix
+# remove --adapters-bottle
+## add --prefix_length NUM
+```
+
+#### Lora (referring to [Lora](https://github.com/microsoft/LoRA))
+
+```
+# pip install loralib
+# change --user-dir 
+USER_DIR=/workspace/projects/s2t/cress_lora
+--arch deltalm_transformer_adapter_emd_share_lora
+# remove --adapters-bottle
+# change Lora hyper-parameter --lora_r NUM
+
 ```
 
 ### Evaluation
