@@ -220,4 +220,4 @@ python generate.py $DATA_BIN \
 
 ### Acknowledgment
 
-We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm) and [CRESS](https://github.com/ictnlp/CRESS). Thanks for their great contributions!
+We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm). Thanks for their great contributions!
