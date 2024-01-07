@@ -258,4 +258,4 @@ python generate.py $DATA_BIN \
 
 ### Acknowledgment
 
-We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm). Thanks for their great contributions!
+We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm),  [Lora](https://github.com/microsoft/LoRA) and [Prefix-v2](https://github.com/THUDM/P-tuning-v2). Thanks for their great contributions!
