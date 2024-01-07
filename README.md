@@ -125,14 +125,14 @@ tar -xzvf MUSTC_v1.0_en-${TARGET}.tar.gz
 #### Machine Translation Pre-train
 *Notes: We first pre-train machine translation model with transcribed speech data (text) and target text data to initialize the speech-to-text model parameters (except for the Hubert model). Besides, to ensure a fair comparison with other baseline models, we did not employ the multilingual machine translation settings during the training phase.*
 ```
-DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/binary
+DATA_BIN=/workspace/s2t/mustc/en-de/binary
 SAVE_DIR=/path/to/save
 USER_DIR=/path/to/deltalm # deltalm dir
 PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
 
 export CUDA_VISIBLE_DEVICES=3
 PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
-DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
+DATA_BIN=/workspace/s2t/mustc/en-de/delta_data_bin
 
 
 python train.py $DATA_BIN \
@@ -243,7 +243,7 @@ USER_DIR=/workspace/projects/s2t/cress_lora
 ### Evaluation
 ```
 export CUDA_VISIBLE_DEVICES=3
-DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
+DATA_BIN=/workspace/s2t/mustc/en-de/delta_data_bin
 
 SAVE_DIR=/workspace/deltalm/save_dir/delta_s2t_ted_en_de_right/checkpoints/checkpoint5.pt
 python generate.py $DATA_BIN \
