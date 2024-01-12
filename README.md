@@ -259,7 +259,7 @@ python generate.py $DATA_BIN \
     --batch-size 128 --beam 5 --remove-bpe=sentencepiece
 ```
 
-
+It should be noted that for the sake of reproducibility of our method, we do not use the [average model parameter trick](https://github.com/facebookresearch/fairseq/blob/main/scripts/average_checkpoints.py) often used in other papers.
 
 
 
