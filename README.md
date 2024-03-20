@@ -265,4 +265,4 @@ It should be noted that for the sake of the reproducibility of our method, we do
 
 ### Acknowledgment
 
-We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm),  [Lora](https://github.com/microsoft/LoRA) and [Prefix-v2](https://github.com/THUDM/P-tuning-v2). Thanks for their great contributions!
+We refer to the code of [Deltalm](https://github.com/microsoft/unilm/tree/master/deltalm),  [LoRA](https://github.com/microsoft/LoRA) and [Prefix-v2](https://github.com/THUDM/P-tuning-v2). Thanks for their great contributions!
