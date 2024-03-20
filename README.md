@@ -185,8 +185,8 @@ pretrain_checkpoints_num=10
 data_dir=/workspace/projects/s2t/data/en-$target
 TEXT_DIR=/workspace/projects/s2t/deltalm_data/en-$target/binary
 
-USER_DIR=/workspace/projects/s2t/cress_adapter
-HU_BERT=/workspace/projects/s2t/cress/hubert
+USER_DIR=/workspace/projects/s2t/st_adapter
+HU_BERT=/workspace/projects/s2t/st/hubert
 ARCH=deltalm_transformer_adapter_emd
 
 adapters_bottle_num=128
@@ -211,7 +211,7 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
 ##### Share Adapter
 ```
 # change USER_DIR
-USER_DIR=/workspace/projects/s2t/cress_adapter_share
+USER_DIR=/workspace/projects/s2t/st_adapter_share
 # change --arch
 --arch deltalm_transformer_adapter_emd_share
 ```
@@ -219,7 +219,7 @@ USER_DIR=/workspace/projects/s2t/cress_adapter_share
 ##### Adapter NAS
 ```
 # change USER_DIR
-USER_DIR=/workspace/projects/s2t/cress_adapter_share_nas
+USER_DIR=/workspace/projects/s2t/st_adapter_share_nas
 # change --arch
 --arch deltalm_transformer_adapter_emd_share_nas
 ```
@@ -228,7 +228,7 @@ USER_DIR=/workspace/projects/s2t/cress_adapter_share_nas
 
 ```
 # change --user-dir 
-USER_DIR=/workspace/projects/s2t/cress_prefix
+USER_DIR=/workspace/projects/s2t/st_prefix
 # change --arch
 --arch deltalm_transformer_prefix
 # remove --adapters-bottle
@@ -240,7 +240,7 @@ USER_DIR=/workspace/projects/s2t/cress_prefix
 ```
 # pip install loralib
 # change --user-dir 
-USER_DIR=/workspace/projects/s2t/cress_lora
+USER_DIR=/workspace/projects/s2t/st_lora
 --arch deltalm_transformer_adapter_emd_share_lora
 # remove --adapters-bottle
 # change Lora hyper-parameter --lora_r NUM
