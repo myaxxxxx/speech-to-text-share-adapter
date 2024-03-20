@@ -17,12 +17,12 @@ fairseq-train ${MUSTC_ROOT} \
 
 
 
-SAVE_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/save_dir/multi
+SAVE_DIR=/workspace/s2t/mustc/en-de/save_dir/multi
 
-data_dir=/workspace/chennan_tmp/s2t/mustc/en-de
-TEXT_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/mustc/en-de
+TEXT_DIR=/workspace/s2t/mustc/en-de/delta_data_bin
+CRESS_DIR=/workspace/s2t/cress
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 
 exp=en-$tgt.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v3_825
@@ -46,8 +46,8 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $tgt \
 
 
 exp=en-$tgt.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v3_825
-ckpt=/workspace/chennan_tmp/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v3_825
-python /workspace/chennan_tmp/s2t/fairseq/scripts/average_checkpoints.py \
+ckpt=/workspace/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v3_825
+python /workspace/s2t/fairseq/scripts/average_checkpoints.py \
     --inputs $ckpt \
     --num-epoch-checkpoints  \
     --output $ckpt/avg_last_10_epoch.pt
@@ -55,12 +55,12 @@ python /workspace/chennan_tmp/s2t/fairseq/scripts/average_checkpoints.py \
 
 
 
-ckpt=/workspace/chennan_tmp/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v3_825/checkpoint4.pt
+ckpt=/workspace/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v3_825/checkpoint4.pt
 
-data_dir=/workspace/chennan_tmp/s2t/mustc/en-de
-TEXT_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/mustc/en-de
+TEXT_DIR=/workspace/s2t/mustc/en-de/delta_data_bin
+CRESS_DIR=/workspace/s2t/cress
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 lang=de
 lenpen=1.2
@@ -71,16 +71,16 @@ fairseq-generate  $data_dir \
   --path $ckpt \
   --max-source-positions 900000 \
   --max-tokens 2000000 --beam 8 --lenpen $lenpen --scoring sacrebleu
-# ckpt=/workspace/chennan_tmp/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_test/checkpoint1.pt
-# CRESS_DIR=/workspace/chennan_tmp/s2t/cress
+# ckpt=/workspace/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_test/checkpoint1.pt
+# CRESS_DIR=/workspace/s2t/cress
 # lang=de
 # lenpen=1.2
 
 
-# data_dir=/workspace/chennan_tmp/s2t/mustc/en-de
-# TEXT_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
-# CRESS_DIR=/workspace/chennan_tmp/s2t/cress
-# HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+# data_dir=/workspace/s2t/mustc/en-de
+# TEXT_DIR=/workspace/s2t/mustc/en-de/delta_data_bin
+# CRESS_DIR=/workspace/s2t/cress
+# HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 # export CUDA_VISIBLE_DEVICES=3
 # fairseq-generate  $data_dir \

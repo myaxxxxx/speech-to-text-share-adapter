@@ -1,4 +1,4 @@
-DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/binary
+DATA_BIN=/workspace/s2t/mustc/en-de/binary
 SAVE_DIR=/workspace/deltalm/save_dir/delta_s2t_ted_en_de_right_test
 USER_DIR=/workspace/deltalm/deltalm/code/unilm/deltalm/prefix_deltalm_old
 PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
@@ -7,7 +7,7 @@ PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
 
 export CUDA_VISIBLE_DEVICES=3
 PRETRAINED_MODEL=/workspace/deltalm/pretrain_model/deltalm-base.pt
-DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
+DATA_BIN=/workspace/s2t/mustc/en-de/delta_data_bin
 
 
 # python train.py $DATA_BIN \
@@ -43,7 +43,7 @@ DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
 
 
 export CUDA_VISIBLE_DEVICES=2
-DATA_BIN=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
+DATA_BIN=/workspace/s2t/mustc/en-de/delta_data_bin
 
 
 for((i=1;i<=40;i++));do  

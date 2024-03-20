@@ -18,12 +18,12 @@ fairseq-train ${MUSTC_ROOT} \
 
 export CUDA_VISIBLE_DEVICES=0
 
-SAVE_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/save_dir/multi
+SAVE_DIR=/workspace/s2t/mustc/en-de/save_dir/multi
 
-data_dir=/workspace/chennan_tmp/s2t/mustc/en-de
-TEXT_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress_orig
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/mustc/en-de
+TEXT_DIR=/workspace/s2t/mustc/en-de/delta_data_bin
+CRESS_DIR=/workspace/s2t/cress_orig
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 
 exp=en-$tgt.postln.wmt_pretrain.mustc_mt_pretrain.multi_test
@@ -70,8 +70,8 @@ fairseq-train data/mustc/en-$tgt --text-data data/mustc/en-$tgt/binary/ --tgt-la
 
 
 
-ckpt=/workspace/chennan_tmp/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v2
-python /workspace/chennan_tmp/s2t/fairseq/scripts/average_checkpoints.py \
+ckpt=/workspace/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v2
+python /workspace/s2t/fairseq/scripts/average_checkpoints.py \
     --inputs $ckpt \
     --num-epoch-checkpoints 10 \
     --output $ckpt/avg_last_10_epoch.pt
@@ -79,17 +79,17 @@ python /workspace/chennan_tmp/s2t/fairseq/scripts/average_checkpoints.py \
 
 
 
-# # ckpt=/workspace/chennan_tmp/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v2/checkpoint1.pt
-# ckpt=/workspace/chennan_tmp/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_test/checkpoint1.pt
-# CRESS_DIR=/workspace/chennan_tmp/s2t/cress
+# # ckpt=/workspace/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_ft_v2/checkpoint1.pt
+# ckpt=/workspace/s2t/en-de/checkpoints/en-de.postln.wmt_pretrain.mustc_mt_pretrain.mustc_mt_deltalm_test/checkpoint1.pt
+# CRESS_DIR=/workspace/s2t/cress
 # lang=de
 # lenpen=1.2
 
 
-# data_dir=/workspace/chennan_tmp/s2t/mustc/en-de
-# TEXT_DIR=/workspace/chennan_tmp/s2t/mustc/en-de/delta_data_bin
-# CRESS_DIR=/workspace/chennan_tmp/s2t/cress
-# HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+# data_dir=/workspace/s2t/mustc/en-de
+# TEXT_DIR=/workspace/s2t/mustc/en-de/delta_data_bin
+# CRESS_DIR=/workspace/s2t/cress
+# HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 # export CUDA_VISIBLE_DEVICES=3
 # fairseq-generate  $data_dir \

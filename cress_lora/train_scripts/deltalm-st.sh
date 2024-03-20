@@ -1,15 +1,15 @@
 target=ro
-cd /workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
+cd /workspace/s2t/raw_data/data/mustc/en-$target
 export CUDA_VISIBLE_DEVICES=2
 target=ro
 
-SAVE_DIR=/workspace/chennan_tmp/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters
+SAVE_DIR=/workspace/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters
 pretrain_checkpoints_num=10
 
-data_dir=/workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
-TEXT_DIR=/workspace/chennan_tmp/s2t/deltalm_data/en-$target/binary
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress_adapter
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/raw_data/data/mustc/en-$target
+TEXT_DIR=/workspace/s2t/deltalm_data/en-$target/binary
+CRESS_DIR=/workspace/s2t/cress_adapter
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 
 fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
@@ -24,24 +24,24 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
   --fp16 \
   --st-training --mt-finetune \
   --hubert-model-path $HU_BERT/hubert_base_ls960.pt \
-  --pretrained_deltalm_checkpoint /workspace/chennan_tmp/s2t/deltalm_data/save_dir/$target/checkpoints/checkpoint$pretrain_checkpoints_num.pt \
+  --pretrained_deltalm_checkpoint /workspace/s2t/deltalm_data/save_dir/$target/checkpoints/checkpoint$pretrain_checkpoints_num.pt \
   --max-source-positions 512 --max-target-positions 512 --adapters-bottle 128 
 
 
 
 target=ro
-cd /workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
+cd /workspace/s2t/raw_data/data/mustc/en-$target
 
 export CUDA_VISIBLE_DEVICES=1
-ckpt=/workspace/chennan_tmp/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters/checkpoint6.pt
+ckpt=/workspace/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters/checkpoint6.pt
 
 tgt=ro
 
 
-data_dir=/workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
-TEXT_DIR=/workspace/chennan_tmp/s2t/deltalm_data/en-$target/binary
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress_adapter
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/raw_data/data/mustc/en-$target
+TEXT_DIR=/workspace/s2t/deltalm_data/en-$target/binary
+CRESS_DIR=/workspace/s2t/cress_adapter
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 lenpen=0.8
 export CUDA_VISIBLE_DEVICES=0
@@ -57,17 +57,17 @@ fairseq-generate  $data_dir \
 
 
 target=ro
-cd /workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
+cd /workspace/s2t/raw_data/data/mustc/en-$target
 export CUDA_VISIBLE_DEVICES=2
 target=ro
 
-SAVE_DIR=/workspace/chennan_tmp/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters_test2
+SAVE_DIR=/workspace/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters_test2
 pretrain_checkpoints_num=10
 
-data_dir=/workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
-TEXT_DIR=/workspace/chennan_tmp/s2t/deltalm_data/en-$target/binary
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress_adapter
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/raw_data/data/mustc/en-$target
+TEXT_DIR=/workspace/s2t/deltalm_data/en-$target/binary
+CRESS_DIR=/workspace/s2t/cress_adapter
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 
 fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
@@ -82,7 +82,7 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
   --fp16 \
   --st-training --mt-finetune \
   --hubert-model-path $HU_BERT/hubert_base_ls960.pt \
-  --pretrained_deltalm_checkpoint /workspace/chennan_tmp/s2t/deltalm_data/save_dir/$target/checkpoints/checkpoint$pretrain_checkpoints_num.pt \
+  --pretrained_deltalm_checkpoint /workspace/s2t/deltalm_data/save_dir/$target/checkpoints/checkpoint$pretrain_checkpoints_num.pt \
   --max-source-positions 512 --max-target-positions 512 --adapters-bottle 128 
 
 
@@ -90,15 +90,15 @@ fairseq-train $data_dir --text-data $TEXT_DIR --tgt-lang $target \
 
 
 export CUDA_VISIBLE_DEVICES=1
-ckpt=/workspace/chennan_tmp/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters_test2/checkpoint3.pt
+ckpt=/workspace/s2t/deltalm_data/save_dir/$target/st_deltalm_adapters_test2/checkpoint3.pt
 
 tgt=ro
 
 
-data_dir=/workspace/chennan_tmp/s2t/raw_data/data/mustc/en-$target
-TEXT_DIR=/workspace/chennan_tmp/s2t/deltalm_data/en-$target/binary
-CRESS_DIR=/workspace/chennan_tmp/s2t/cress_adapter
-HU_BERT=/workspace/chennan_tmp/s2t/mustc/en-de/hu_bert
+data_dir=/workspace/s2t/raw_data/data/mustc/en-$target
+TEXT_DIR=/workspace/s2t/deltalm_data/en-$target/binary
+CRESS_DIR=/workspace/s2t/cress_adapter
+HU_BERT=/workspace/s2t/mustc/en-de/hu_bert
 
 lenpen=0.8
 fairseq-generate  $data_dir \
