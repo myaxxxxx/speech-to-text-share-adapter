@@ -17,6 +17,10 @@ Parameter-Efficient Adapters Based on Pre-trained Models for Speech Translation
 </p>
 
 <p align="center">
+
+We're sorry that sometimes anonymous github cannot display README file.
+The anonymous github we use sometimes cannot display the contents of the README file. We converted the contents of the readme file into pdf format.
+
 Codes for our regular and share adapters for speech-to-text translation tasks (Under review).
 After the review period, we will open-source the code on our GitHub.
 </p>
